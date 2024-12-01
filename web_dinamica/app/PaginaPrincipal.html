@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo sobre Erik Prin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" onclick="showSection('home')">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
+                aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarDark">
+                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('proyectos')">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('formulario')">Formulario</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input id="search" class="form-control me-2" type="search" placeholder="Buscar proyectos"
+                        aria-label="Search">
+                    <button class="btn btn-outline-light" type="button" id="searchButton">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home -->
+    <div id="home" class="container mt-5 section">
+        <h1 class="text-center text-primary mb-4">Todo sobre Erik Prin</h1>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary">Estudios Realizados</h2>
+                <p class="card-text">He completado mis estudios en el área de Administración de Redes, incluyendo cursos
+                    sobre desarrollo web, programación, administración de bases de datos. Actualmente, estoy en 2º de
+                    ASIR y dentro de poco iniciaré mis prácticas en empresa.</p>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary">Intereses Personales</h2>
+                <p class="card-text">Me interesa la tecnología, tanto la relacionada con el desarrollo como la de
+                    entretenimiento como los videojuegos. También me interesa el desarrollo personal, tanto físico como
+                    mental.</p>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary">Hobbies</h2>
+                <p class="card-text">En mi tiempo libre disfruto programar, jugar videojuegos, y hacer ejercicio,
+                    sobre todo ir al gimnasio. Además me gusta ir con mis amigos a explorar sitios abandonados o hacer
+                    caminatas por montes o pueblos.
+                    Otra cosa para el desarrollo mental que me gusta hacer, es leer libros relacionados con el
+                    desarrollo personal, como mejorar en tu día a día.
+                    Aumentar tus conocimientos es una buena manera de mantener tu cerebro bien ejercitado y entretenido.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proyectos -->
+    <div id="proyectos" class="container mt-5 section" style="display: none;">
+        <h1 class="text-center text-primary mb-4">Proyectos</h1>
+        <div class="row" id="project-cards">
+            <!-- Cartas de proyectos generadas por JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal para detalles del proyecto -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Detalles del Proyecto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Imagen del proyecto" class="img-fluid mb-3">
+                    <div id="modalDescription"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario -->
+    <div id="formulario" class="container mt-5 section" style="display: none;">
+        <h1 class="text-center text-primary mb-4">Formulario</h1>
+        <form id="contactForm">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="3" placeholder="Escribe tu mensaje" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Modal de confirmación del formulario -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">¡Gracias!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-0">Erik Prin 2º ASIR</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="./Imagenes/Logo Cuatrovientos.png" alt="Logo" class="img-fluid" width="80">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./PaginaPrincipal.js"></script>
+</body>
+
+</html>
